@@ -321,7 +321,7 @@ body {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     border-radius: 16px;
-    padding: 1.5rem;
+    padding: 1rem;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     animation: fadeIn 0.4s ease;
 }
@@ -330,21 +330,21 @@ body {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-dark);
-    margin-bottom: 1rem;
-    padding-bottom: 0.7rem;
-    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .items-list {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 0.35rem;
 }
 
 .item {
     display: flex;
     align-items: center;
-    padding: 0.9rem 1rem;
+    padding: 0.6rem 0.8rem;
     background: #f9fafb;
     border-radius: 10px;
     transition: all 0.3s ease;
@@ -367,7 +367,7 @@ body {
 .item-checkbox {
     width: 24px;
     height: 24px;
-    margin-right: 1rem;
+    margin-right: 0.75rem;
     cursor: pointer;
     accent-color: var(--secondary);
 }
