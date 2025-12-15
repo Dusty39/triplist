@@ -321,30 +321,30 @@ body {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     border-radius: 16px;
-    padding: 1rem;
+    padding: 0.8rem;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     animation: fadeIn 0.4s ease;
 }
 
 .category-header {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    padding-bottom: 0.4rem;
+    font-size: 1.1rem;
     border-bottom: 1px solid #e5e7eb;
 }
 
 .items-list {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.2rem;
 }
 
 .item {
     display: flex;
     align-items: center;
-    padding: 0.6rem 0.8rem;
+    padding: 0.4rem 0.6rem;
+    min-height: 44px;
+    /* Maintain touch target size */
     background: #f9fafb;
     border-radius: 10px;
     transition: all 0.3s ease;
@@ -374,7 +374,7 @@ body {
 
 .item-name {
     flex: 1;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-dark);
 }
