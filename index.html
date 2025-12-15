@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart travel packing checklist generator">
+    <meta name="theme-color" content="#667eea">
+    <title>TripList - Travel Checklist</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" class="screen active">
+        <div class="container">
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
+            </div>
+
+            <div class="header">
+                <h1>🎒 TripList</h1>
+                <p class="subtitle">Create your personalized packing list</p>
+            </div>
+
+            <div class="config-form">
+                <!-- Trip Type -->
+                <div class="config-section">
+                    <h2>🎯 Gezi Türü</h2>
+                    <div class="options-grid">
+                        <button class="option-btn" data-type="camping" onclick="selectTripType('camping')">
+                            <span class="option-icon">🏕️</span>
+                            <span class="option-label">Kamp</span>
+                        </button>
+                        <button class="option-btn" data-type="beach" onclick="selectTripType('beach')">
+                            <span class="option-icon">🏖️</span>
+                            <span class="option-label">Plaj Tatili</span>
+                        </button>
+                        <button class="option-btn" data-type="hiking" onclick="selectTripType('hiking')">
+                            <span class="option-icon">⛰️</span>
+                            <span class="option-label">Dağ/Doğa</span>
+                        </button>
+                        <button class="option-btn" data-type="city" onclick="selectTripType('city')">
+                            <span class="option-icon">🏙️</span>
+                            <span class="option-label">Şehir Gezisi</span>
+                        </button>
+                        <button class="option-btn" data-type="business" onclick="selectTripType('business')">
+                            <span class="option-icon">✈️</span>
+                            <span class="option-label">İş Seyahati</span>
+                        </button>
+                        <button class="option-btn" data-type="ski" onclick="selectTripType('ski')">
+                            <span class="option-icon">🎿</span>
+                            <span class="option-label">Kayak</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Duration -->
+                <div class="config-section">
+                    <h2>⏱️ Duration</h2>
+                    <div class="options-grid">
+                        <button class="option-btn" data-duration="oneTwo" onclick="selectDuration('oneTwo')">
+                            <span class="option-label">1-2 Days</span>
+                        </button>
+                        <button class="option-btn" data-duration="threeFive" onclick="selectDuration('threeFive')">
+                            <span class="option-label">3-5 Days</span>
+                        </button>
+                        <button class="option-btn" data-duration="week" onclick="selectDuration('week')">
+                            <span class="option-label">1 Week</span>
+                        </button>
+                        <button class="option-btn" data-duration="longTrip" onclick="selectDuration('longTrip')">
+                            <span class="option-label">1+ Week</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Season -->
+                <div class="config-section">
+                    <h2>🌤️ Mevsim</h2>
+                    <div class="options-grid">
+                        <button class="option-btn" data-season="summer" onclick="selectSeason('summer')">
+                            <span class="option-icon">☀️</span>
+                            <span class="option-label">Yaz</span>
+                        </button>
+                        <button class="option-btn" data-season="fall" onclick="selectSeason('fall')">
+                            <span class="option-icon">🍂</span>
+                            <span class="option-label">Sonbahar</span>
+                        </button>
+                        <button class="option-btn" data-season="winter" onclick="selectSeason('winter')">
+                            <span class="option-icon">❄️</span>
+                            <span class="option-label">Kış</span>
+                        </button>
+                        <button class="option-btn" data-season="spring" onclick="selectSeason('spring')">
+                            <span class="option-icon">🌸</span>
+                            <span class="option-label">İlkbahar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="config-section">
+                    <h2>📍 Location</h2>
+                    <div class="options-grid">
+                        <button class="option-btn" data-location="domestic" onclick="selectLocation('domestic')">
+                            <span class="option-icon">🏠</span>
+                            <span class="option-label">Domestic</span>
+                        </button>
+                        <button class="option-btn" data-location="international"
+                            onclick="selectLocation('international')">
+                            <span class="option-icon">🌍</span>
+                            <span class="option-label">International</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <button class="btn-generate" onclick="generateChecklist()">
+                    📋 Generate List
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checklist Screen -->
+    <div id="checklist-screen" class="screen">
+        <div class="container">
+            <div class="checklist-header">
+                <button class="btn-back" onclick="backToDashboard()">← New Trip</button>
+                <div class="trip-info">
+                    <h1>✓ Checklist</h1>
+                    <div class="trip-summary" id="trip-summary"></div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress-text" id="progress-text">0/0 hazır</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checklist-content" id="checklist-content">
+                <!-- Categories will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="items-database.js"></script>
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                .then(() => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker registration failed:', err));
+        }
+    </script>
+</body>
+
+</html>
