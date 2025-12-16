@@ -2,21 +2,21 @@
 let currentLanguage = 'en'; // Default to English
 
 function t(key) {
-    if (!translations[currentLanguage]) return key;
+    if (!window.translations || !window.translations[currentLanguage]) return key;
 
     // Check main keys
-    if (translations[currentLanguage][key]) {
-        return translations[currentLanguage][key];
+    if (window.translations[currentLanguage][key]) {
+        return window.translations[currentLanguage][key];
     }
 
     // Legacy support for nested items if they exist, though we flattened them.
-    if (translations[currentLanguage].items && translations[currentLanguage].items[key]) {
-        return translations[currentLanguage].items[key];
+    if (window.translations[currentLanguage].items && window.translations[currentLanguage].items[key]) {
+        return window.translations[currentLanguage].items[key];
     }
 
     // Fallback to English
-    if (currentLanguage !== 'en' && translations.en[key]) {
-        return translations.en[key];
+    if (currentLanguage !== 'en' && window.translations.en[key]) {
+        return window.translations.en[key];
     }
 
     return key;
@@ -498,14 +498,21 @@ function loadState() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    loadLanguage();
-    checkGenerateButton();
-    // Check if we have a currently active trip (legacy singular save)
-    // or just return to dashboard. For now, let's load legacy if exists for backward auth.
-    // But ideally we want to start fresh or let user choose.
-    // Let's migrate legacy save to new system if it exists? 
-    // For simplicity: Load legacy "travelChecklist" if exists, then prompt user to save it properly later.
-    loadState();
+    try {
+        if (typeof window.translations === 'undefined') {
+            throw new Error('Translations failed to load');
+        }
+        if (typeof window.itemsDatabase === 'undefined') {
+            console.warn('Items database missing');
+        }
+
+        loadLanguage();
+        checkGenerateButton();
+        loadState();
+    } catch (e) {
+        console.error('Initialization Error:', e);
+        alert('App initialization failed: ' + e.message + '. Please refresh.');
+    }
 });
 
 // ... existing logic ...

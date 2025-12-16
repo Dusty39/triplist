@@ -1,5 +1,6 @@
 // Travel Checklist Items Database
-const itemsDatabase = {
+// Travel Checklist Items Database
+window.itemsDatabase = {
     // Essential items shown for every trip
     essentials: [
         { name: "item_id_passport", category: "documents" },

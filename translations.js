@@ -1,5 +1,6 @@
 // TripList - Translations
-const translations = {
+// TripList - Translations
+window.translations = {
     en: {
         // Header
         appName: "TripList",
