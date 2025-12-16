@@ -27,6 +27,28 @@ function setLanguage(lang) {
     localStorage.setItem('triplistLanguage', lang);
     updateLanguageUI();
     updateAllText();
+    updateAllText();
+}
+
+// --- Dark Mode ---
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('triplistTheme', isDark ? 'dark' : 'light');
+    updateThemeIcon(isDark);
+}
+
+function updateThemeIcon(isDark) {
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = isDark ? '☀️' : '🌙';
+}
+
+function loadTheme() {
+    const savedTheme = localStorage.getItem('triplistTheme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        updateThemeIcon(true);
+    }
 }
 
 function updateLanguageUI() {
@@ -49,10 +71,11 @@ function updateAllText() {
 
     // Update section headings
     const sections = document.querySelectorAll('.config-section h2');
-    if (sections[0]) sections[0].textContent = `🎯 ${t('tripType')}`;
-    if (sections[1]) sections[1].textContent = `⏱️ ${t('duration')}`;
-    if (sections[2]) sections[2].textContent = `🌤️ ${t('season')}`;
-    if (sections[3]) sections[3].textContent = `📍 ${t('location')}`;
+    if (sections[0]) sections[0].querySelector('span').textContent = t('destination');
+    if (sections[1]) sections[1].textContent = `🎯 ${t('tripType')}`;
+    if (sections[2]) sections[2].textContent = `⏱️ ${t('duration')}`;
+    if (sections[3]) sections[3].textContent = `🌤️ ${t('season')}`;
+    if (sections[4]) sections[4].textContent = `📍 ${t('location')}`;
 
     // Update option labels
     const updateOptions = (dataAttr, keys) => {
@@ -203,6 +226,20 @@ function generateChecklist() {
 
     // Update trip summary
     updateTripSummary();
+
+    // Generate items
+    checklistItems = collectItems();
+
+    // Update trip summary
+    updateTripSummary();
+
+    // Weather
+    const city = document.getElementById('destination-input').value.trim();
+    if (city) {
+        fetchWeather(city);
+    } else {
+        document.getElementById('weather-widget').classList.remove('active');
+    }
 
     // Render checklist
     renderChecklist();
@@ -507,6 +544,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         loadLanguage();
+        loadTheme();
         checkGenerateButton();
         loadState();
     } catch (e) {
@@ -750,4 +788,49 @@ function exportPDF() {
     });
 
     doc.save('my-triplist.pdf');
+}
+
+// --- Weather Integration ---
+async function fetchWeather(city) {
+    if (!city) return;
+
+    const widget = document.getElementById('weather-widget');
+    widget.classList.add('active');
+    widget.textContent = t('loadingWeather');
+
+    try {
+        // 1. Geocoding
+        const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`;
+        const geoRes = await fetch(geoUrl);
+        const geoData = await geoRes.json();
+
+        if (!geoData.results || geoData.results.length === 0) {
+            widget.textContent = `${t('weatherError')} (${city})`;
+            return;
+        }
+
+        const { latitude, longitude, name } = geoData.results[0];
+
+        // 2. Weather Forecast
+        const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+        const weatherRes = await fetch(weatherUrl);
+        const weatherData = await weatherRes.json();
+
+        const temp = Math.round(weatherData.current_weather.temperature);
+        const code = weatherData.current_weather.weathercode;
+        
+        // Simple WMO code mapping
+        let icon = '☀️';
+        if (code > 3) icon = '☁️';
+        if (code > 40) icon = '🌫️';
+        if (code > 50) icon = '🌧️';
+        if (code > 70) icon = '❄️';
+        if (code > 90) icon = '⚡';
+
+        widget.innerHTML = `<strong>${name}:</strong> ${temp}°C ${icon}`;
+
+    } catch (err) {
+        console.error('Weather error:', err);
+        widget.textContent = t('weatherError');
+    }
 }

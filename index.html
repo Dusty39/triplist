@@ -21,211 +21,223 @@
     <!-- Dashboard Screen -->
     <div id="dashboard-screen" class="screen active">
         <div class="container">
-            <!-- Language Switcher -->
-            <div class="language-switcher">
-                <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
-                <button class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">TR</button>
-                <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
-            </div>
-
-            <div class="header">
-                <h1>🎒 TripList</h1>
-                <p class="subtitle">Create your personalized packing list</p>
-            </div>
-
-            <div class="config-form">
-                <!-- Trip Type -->
-                <div class="config-section">
-                    <h2>🎯 Gezi Türü</h2>
-                    <div class="options-grid">
-                        <button class="option-btn" data-type="camping" onclick="selectTripType('camping')">
-                            <span class="option-icon">🏕️</span>
-                            <span class="option-label">Kamp</span>
-                        </button>
-                        <button class="option-btn" data-type="beach" onclick="selectTripType('beach')">
-                            <span class="option-icon">🏖️</span>
-                            <span class="option-label">Plaj Tatili</span>
-                        </button>
-                        <button class="option-btn" data-type="hiking" onclick="selectTripType('hiking')">
-                            <span class="option-icon">⛰️</span>
-                            <span class="option-label">Dağ/Doğa</span>
-                        </button>
-                        <button class="option-btn" data-type="city" onclick="selectTripType('city')">
-                            <span class="option-icon">🏙️</span>
-                            <span class="option-label">Şehir Gezisi</span>
-                        </button>
-                        <button class="option-btn" data-type="business" onclick="selectTripType('business')">
-                            <span class="option-icon">✈️</span>
-                            <span class="option-label">İş Seyahati</span>
-                        </button>
-                        <button class="option-btn" data-type="ski" onclick="selectTripType('ski')">
-                            <span class="option-icon">🎿</span>
-                            <span class="option-label">Kayak</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Duration -->
-                <div class="config-section">
-                    <h2>⏱️ Duration</h2>
-                    <div class="options-grid">
-                        <button class="option-btn" data-duration="oneTwo" onclick="selectDuration('oneTwo')">
-                            <span class="option-label">1-2 Days</span>
-                        </button>
-                        <button class="option-btn" data-duration="threeFive" onclick="selectDuration('threeFive')">
-                            <span class="option-label">3-5 Days</span>
-                        </button>
-                        <button class="option-btn" data-duration="week" onclick="selectDuration('week')">
-                            <span class="option-label">1 Week</span>
-                        </button>
-                        <button class="option-btn" data-duration="longTrip" onclick="selectDuration('longTrip')">
-                            <span class="option-label">1+ Week</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Season -->
-                <div class="config-section">
-                    <h2>🌤️ Mevsim</h2>
-                    <div class="options-grid">
-                        <button class="option-btn" data-season="summer" onclick="selectSeason('summer')">
-                            <span class="option-icon">☀️</span>
-                            <span class="option-label">Yaz</span>
-                        </button>
-                        <button class="option-btn" data-season="fall" onclick="selectSeason('fall')">
-                            <span class="option-icon">🍂</span>
-                            <span class="option-label">Sonbahar</span>
-                        </button>
-                        <button class="option-btn" data-season="winter" onclick="selectSeason('winter')">
-                            <span class="option-icon">❄️</span>
-                            <span class="option-label">Kış</span>
-                        </button>
-                        <button class="option-btn" data-season="spring" onclick="selectSeason('spring')">
-                            <span class="option-icon">🌸</span>
-                            <span class="option-label">İlkbahar</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Location -->
-                <div class="config-section">
-                    <h2>📍 Location</h2>
-                    <div class="options-grid">
-                        <button class="option-btn" data-location="domestic" onclick="selectLocation('domestic')">
-                            <span class="option-icon">🏠</span>
-                            <span class="option-label">Domestic</span>
-                        </button>
-                        <button class="option-btn" data-location="international"
-                            onclick="selectLocation('international')">
-                            <span class="option-icon">🌍</span>
-                            <span class="option-label">International</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Generate Button -->
-                <button class="btn-generate" onclick="generateChecklist()">
-                    📋 Generate List
+            <!-- Theme & Language Switcher -->
+            <div class="top-controls">
+                <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+                    🌙
                 </button>
-
-                <!-- My Trips Button -->
-                <button class="btn-secondary" onclick="showScreen('trips-screen'); loadSavedTripsUI()">
-                    📂 My Trips
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Trips Screen -->
-    <div id="trips-screen" class="screen">
-        <div class="container">
-            <div class="checklist-header">
-                <button class="btn-back" onclick="backToDashboard()">← Back</button>
-                <h1>📂 My Trips</h1>
-            </div>
-            <div class="trips-list" id="saved-trips-list">
-                <!-- Saved trips will be inserted here -->
-            </div>
-            <div id="no-trips-message" class="no-trips">
-                No saved trips yet.
-            </div>
-        </div>
-    </div>
-
-    <!-- Save Trip Modal -->
-    <div id="save-modal" class="modal">
-        <div class="modal-content">
-            <h2 id="modal-title">Save Trip</h2>
-            <input type="text" id="trip-name-input" placeholder="Enter trip name...">
-            <div class="modal-actions">
-                <button class="btn-cancel" onclick="closeSaveModal()">Cancel</button>
-                <button class="btn-save" onclick="saveCurrentTrip()">Save</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Checklist Screen -->
-    <div id="checklist-screen" class="screen">
-        <div class="container">
-            <div class="checklist-header">
-                <button class="btn-back" onclick="backToDashboard()">← New Trip</button>
-                <div class="trip-info">
-                    <h1>✓ Checklist</h1>
-                    <div class="trip-summary" id="trip-summary"></div>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" data-lang="tr" onclick="setLanguage('tr')">TR</button>
+                    <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
                 </div>
-                <div class="progress-info">
-                    <div class="progress-text" id="progress-text">0/0 hazır</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
+
+                <div class="header">
+                    <h1>🎒 TripList</h1>
+                    <p class="subtitle">Create your personalized packing list</p>
+                </div>
+
+                <div class="config-form">
+                    <!-- Trip Type -->
+                    <div class="config-section">
+                        <h2>🎯 Gezi Türü</h2>
+                        <div class="options-grid">
+                            <button class="option-btn" data-type="camping" onclick="selectTripType('camping')">
+                                <span class="option-icon">🏕️</span>
+                                <span class="option-label">Kamp</span>
+                            </button>
+                            <button class="option-btn" data-type="beach" onclick="selectTripType('beach')">
+                                <span class="option-icon">🏖️</span>
+                                <span class="option-label">Plaj Tatili</span>
+                            </button>
+                            <button class="option-btn" data-type="hiking" onclick="selectTripType('hiking')">
+                                <span class="option-icon">⛰️</span>
+                                <span class="option-label">Dağ/Doğa</span>
+                            </button>
+                            <button class="option-btn" data-type="city" onclick="selectTripType('city')">
+                                <span class="option-icon">🏙️</span>
+                                <span class="option-label">Şehir Gezisi</span>
+                            </button>
+                            <button class="option-btn" data-type="business" onclick="selectTripType('business')">
+                                <span class="option-icon">✈️</span>
+                                <span class="option-label">İş Seyahati</span>
+                            </button>
+                            <button class="option-btn" data-type="ski" onclick="selectTripType('ski')">
+                                <span class="option-icon">🎿</span>
+                                <span class="option-label">Kayak</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Duration -->
+                    <div class="config-section">
+                        <h2>⏱️ Duration</h2>
+                        <div class="options-grid">
+                            <button class="option-btn" data-duration="oneTwo" onclick="selectDuration('oneTwo')">
+                                <span class="option-label">1-2 Days</span>
+                            </button>
+                            <button class="option-btn" data-duration="threeFive" onclick="selectDuration('threeFive')">
+                                <span class="option-label">3-5 Days</span>
+                            </button>
+                            <button class="option-btn" data-duration="week" onclick="selectDuration('week')">
+                                <span class="option-label">1 Week</span>
+                            </button>
+                            <button class="option-btn" data-duration="longTrip" onclick="selectDuration('longTrip')">
+                                <span class="option-label">1+ Week</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Season -->
+                    <div class="config-section">
+                        <h2>🌤️ Mevsim</h2>
+                        <div class="options-grid">
+                            <button class="option-btn" data-season="summer" onclick="selectSeason('summer')">
+                                <span class="option-icon">☀️</span>
+                                <span class="option-label">Yaz</span>
+                            </button>
+                            <button class="option-btn" data-season="fall" onclick="selectSeason('fall')">
+                                <span class="option-icon">🍂</span>
+                                <span class="option-label">Sonbahar</span>
+                            </button>
+                            <button class="option-btn" data-season="winter" onclick="selectSeason('winter')">
+                                <span class="option-icon">❄️</span>
+                                <span class="option-label">Kış</span>
+                            </button>
+                            <button class="option-btn" data-season="spring" onclick="selectSeason('spring')">
+                                <span class="option-icon">🌸</span>
+                                <span class="option-label">İlkbahar</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Destination Input (New for Weather) -->
+                    <div class="config-section">
+                        <h2>🗺️ <span class="translatable" data-key="destination">Destination</span></h2>
+                        <input type="text" id="destination-input" class="text-input"
+                            placeholder="London, Paris, etc...">
+                    </div>
+
+                    <!-- Location Type -->
+                    <div class="config-section">
+                        <h2>📍 Location</h2>
+                        <div class="options-grid">
+                            <button class="option-btn" data-location="domestic" onclick="selectLocation('domestic')">
+                                <span class="option-icon">🏠</span>
+                                <span class="option-label">Domestic</span>
+                            </button>
+                            <button class="option-btn" data-location="international"
+                                onclick="selectLocation('international')">
+                                <span class="option-icon">🌍</span>
+                                <span class="option-label">International</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <button class="btn-generate" onclick="generateChecklist()">
+                        📋 Generate List
+                    </button>
+
+                    <!-- My Trips Button -->
+                    <button class="btn-secondary" onclick="showScreen('trips-screen'); loadSavedTripsUI()">
+                        📂 My Trips
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trips Screen -->
+        <div id="trips-screen" class="screen">
+            <div class="container">
+                <div class="checklist-header">
+                    <button class="btn-back" onclick="backToDashboard()">← Back</button>
+                    <h1>📂 My Trips</h1>
+                </div>
+                <div class="trips-list" id="saved-trips-list">
+                    <!-- Saved trips will be inserted here -->
+                </div>
+                <div id="no-trips-message" class="no-trips">
+                    No saved trips yet.
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Trip Modal -->
+        <div id="save-modal" class="modal">
+            <div class="modal-content">
+                <h2 id="modal-title">Save Trip</h2>
+                <input type="text" id="trip-name-input" placeholder="Enter trip name...">
+                <div class="modal-actions">
+                    <button class="btn-cancel" onclick="closeSaveModal()">Cancel</button>
+                    <button class="btn-save" onclick="saveCurrentTrip()">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checklist Screen -->
+        <div id="checklist-screen" class="screen">
+            <div class="container">
+                <div class="checklist-header">
+                    <button class="btn-back" onclick="backToDashboard()">← New Trip</button>
+                    <div class="trip-info">
+                        <h1>✓ Checklist</h1>
+                        <div class="trip-summary" id="trip-summary"></div>
+                        <div id="weather-widget" class="weather-widget"></div>
+                    </div>
+                    <div class="progress-info">
+                        <div class="progress-text" id="progress-text">0/0 hazır</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-action" onclick="shareList()">📤 Share</button>
+                        <button class="btn-action" onclick="exportPDF()">📄 PDF</button>
+                        <button class="btn-action" onclick="openSaveModal()">💾 Save</button>
                     </div>
                 </div>
 
-                <div class="action-buttons">
-                    <button class="btn-action" onclick="shareList()">📤 Share</button>
-                    <button class="btn-action" onclick="exportPDF()">📄 PDF</button>
-                    <button class="btn-action" onclick="openSaveModal()">💾 Save</button>
+                <div class="checklist-content" id="checklist-content">
+                    <!-- Categories will be dynamically inserted here -->
                 </div>
             </div>
-
-            <div class="checklist-content" id="checklist-content">
-                <!-- Categories will be dynamically inserted here -->
-            </div>
         </div>
-    </div>
 
-    <script src="items-database.js"></script>
-    <script src="translations.js"></script>
-    <script src="app.js"></script>
+        <script src="items-database.js"></script>
+        <script src="translations.js"></script>
+        <script src="app.js"></script>
 
-    <!-- PWA Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js?v=8')
-                .then(registration => {
-                    console.log('Service Worker registered');
+        <!-- PWA Service Worker Registration -->
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./sw.js?v=9')
+                    .then(registration => {
+                        console.log('Service Worker registered');
 
-                    // Check for updates
-                    registration.addEventListener('updatefound', () => {
-                        const newWorker = registration.installing;
-                        newWorker.addEventListener('statechange', () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                // New update available
-                                console.log('New update available');
-                            }
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New update available
+                                    console.log('New update available');
+                                }
+                            });
                         });
-                    });
-                })
-                .catch(err => console.log('Service Worker registration failed:', err));
+                    })
+                    .catch(err => console.log('Service Worker registration failed:', err));
 
-            // Reload page when new service worker takes control
-            let refreshing;
-            navigator.serviceWorker.addEventListener('controllerchange', () => {
-                if (refreshing) return;
-                window.location.reload();
-                refreshing = true;
-            });
-        }
-    </script>
+                // Reload page when new service worker takes control
+                let refreshing;
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    if (refreshing) return;
+                    window.location.reload();
+                    refreshing = true;
+                });
+            }
+        </script>
 </body>
 
 </html>

@@ -11,6 +11,10 @@ window.translations = {
         duration: "Duration",
         season: "Season",
         location: "Location",
+        destination: "Destination (City)",
+        weather: "Weather",
+        loadingWeather: "Loading Weather...",
+        weatherError: "Weather unavailable",
 
         // Trip types
         camping: "Camping",
@@ -207,6 +211,10 @@ window.translations = {
         duration: "Süre",
         season: "Mevsim",
         location: "Konum",
+        destination: "Gidilecek Yer (Şehir)",
+        weather: "Hava Durumu",
+        loadingWeather: "Hava durumu yükleniyor...",
+        weatherError: "Hava durumu alınamadı",
 
         // Trip types
         camping: "Kamp",
@@ -403,6 +411,10 @@ window.translations = {
         duration: "Duración",
         season: "Temporada",
         location: "Ubicación",
+        destination: "Destino (Ciudad)",
+        weather: "Clima",
+        loadingWeather: "Cargando clima...",
+        weatherError: "Clima no disponible",
 
         // Trip types
         camping: "Camping",
