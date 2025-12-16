@@ -193,7 +193,7 @@ const translations = {
         // Share & Export
         share: "Share",
         exportPDF: "Export PDF",
-        shareText: "Check out my travel list for",
+        shareText: "Check out my travel list for"
     },
 
     tr: {
@@ -372,6 +372,7 @@ const translations = {
         item_deodorant: "Deodorant",
         item_perfume: "Parfüm",
         item_hairbrush: "Saç Fırçası",
+
         // Trip Management
         myTrips: "Gezilerim",
         saveTrip: "Geziyi Kaydet",
@@ -388,205 +389,8 @@ const translations = {
         // Share & Export
         share: "Paylaş",
         exportPDF: "PDF İndir",
-        shareText: "seyahat listeme göz atın",
+        shareText: "seyahat listeme göz atın"
     },
-
-    es: {
-        // ... (previous content)
-        // Trip Management
-        myTrips: "Mis Viajes",
-        saveTrip: "Guardar Viaje",
-        tripName: "Nombre del Viaje",
-        enterTripName: "Nombre del viaje...",
-        save: "Guardar",
-        cancel: "Cancelar",
-        delete: "Eliminar",
-        load: "Cargar",
-        noTrips: "No hay viajes guardados.",
-        confirmDelete: "¿Estás seguro de que quieres eliminar este viaje?",
-        tripSaved: "¡Viaje guardado!",
-
-        // Share & Export
-        share: "Compartir",
-        exportPDF: "Exportar PDF",
-        shareText: "Mira mi lista de viaje para",
-    }
-        // Header
-        appName: "TripList",
-    subtitle: "Geziniz için kişiselleştirilmiş liste oluşturun",
-
-    // Config sections
-    tripType: "Gezi Türü",
-    duration: "Süre",
-    season: "Mevsim",
-    location: "Konum",
-
-    // Trip types
-    camping: "Kamp",
-    beach: "Plaj Tatili",
-    hiking: "Dağ/Doğa",
-    city: "Şehir Gezisi",
-    business: "İş Seyahati",
-    ski: "Kayak",
-
-    // Durations
-    oneTwo: "1-2 Gün",
-    threeFive: "3-5 Gün",
-    week: "1 Hafta",
-    longTrip: "1+ Hafta",
-
-    // Seasons
-    summer: "Yaz",
-    fall: "Sonbahar",
-    winter: "Kış",
-    spring: "İlkbahar",
-
-    // Locations
-    domestic: "Yerel",
-    international: "Uluslararası",
-
-    // Buttons
-    generateList: "Listeyi Oluştur",
-    newTrip: "Yeni Gezi",
-
-    // Checklist
-    checklist: "Kontrol Listesi",
-    ready: "hazır",
-    remove: "Listeden kaldır",
-
-    // Categories
-    documents: "Belgeler",
-    clothing: "Kıyafet",
-    electronics: "Elektronik",
-    hygiene: "Hijyen",
-    camping: "Kamp",
-    beach: "Plaj",
-    hiking: "Dağcılık",
-    ski: "Kayak",
-    office: "Ofis",
-    accessories: "Aksesuar",
-    health: "Sağlık",
-    food: "Yiyecek İçecek",
-    general: "Genel",
-    safety: "Güvenlik",
-    travel: "Seyahat",
-    entertainment: "Eğlence",
-
-    // Items
-    item_id_passport: "Kimlik/Pasaport",
-    item_wallet_money: "Cüzdan/Para",
-    item_phone: "Telefon",
-    item_phone_charger: "Telefon Şarj Aleti",
-    item_underwear: "İç Çamaşırı",
-    item_socks: "Çorap",
-    item_toothbrush_paste: "Diş Fırçası ve Macunu",
-    item_sunglasses: "Güneş Gözlüğü",
-    item_tent: "Çadır",
-    item_sleeping_bag: "Uyku Tulumu",
-    item_sleeping_mat: "Kamp Matı",
-    item_flashlight: "Fener/El Feneri",
-    item_powerbank: "Powerbank",
-    item_multitool: "Çakı/Çok Amaçlı Alet",
-    item_lighter_matches: "Çakmak/Kibrit",
-    item_cooking_kit: "Yemek Kabı ve Çatal-Kaşık",
-    item_water_bottle: "Su Matarası",
-    item_camp_chair: "Kamp Sandalyesi",
-    item_portable_stove: "Taşınabilir Ocak",
-    item_cooler_bag: "Soğutucu Çanta",
-    item_first_aid_kit: "İlk Yardım Çantası",
-    item_bug_spray: "Böcek Kovucu Sprey",
-    item_sneakers: "Spor Ayakkabı",
-    item_outdoor_clothes: "Outdoor Kıyafetler",
-    item_swimsuit: "Mayo/Şort",
-    item_beach_towel: "Plaj Havlusu",
-    item_sunscreen: "Güneş Kremi",
-    item_beach_umbrella: "Plaj Şemsiyesi",
-    item_beach_bag: "Plaj Çantası",
-    item_flip_flops: "Terlik/Sandalet",
-    item_hat: "Şapka/Kep",
-    item_water_sports_gear: "Su Sporları Ekipmanı",
-    item_underwater_camera: "Sualtı Kamerası",
-    item_book_magazine: "Kitap/Dergi",
-    item_bikini_coverup: "Bikini/Cover-up",
-    item_trekking_shoes: "Trekking Ayakkabısı",
-    item_backpack: "Sırt Çantası",
-    item_trekking_poles: "Yürüyüş Sopası",
-    item_map_compass: "Harita/Pusula",
-    item_gps_device: "GPS Cihazı",
-    item_hydration_pack: "Su Matarası/Hidrasyon Çantası",
-    item_raincoat: "Yağmurluk",
-    item_layered_clothing: "Katmanlı Kıyafet",
-    item_helmet: "Kask (gerekirse)",
-    item_energy_bars: "Enerji Barları",
-    item_whistle: "Düdük",
-    item_fancy_clothes: "Şık Kıyafetler",
-    item_walking_shoes: "Rahat Yürüyüş Ayakkabısı",
-    item_city_guide: "Şehir Rehberi/Harita",
-    item_camera: "Kamera/Fotoğraf Makinesi",
-    item_small_backpack: "Küçük Sırt Çantası",
-    item_museum_tickets: "Müze/Etkinlik Biletleri",
-    item_fancy_bag: "Şık Çanta/Cüzdan",
-    item_headphones: "Kulaklık",
-    item_suit: "Takım Elbise/Blazer",
-    item_shirt_blouse: "Gömlek/Bluz",
-    item_formal_shoes: "Klasik Ayakkabı",
-    item_tie_scarf: "Kravat/Fular",
-    item_laptop: "Laptop",
-    item_laptop_charger: "Laptop Şarj Aleti",
-    item_business_cards: "Kartvizit",
-    item_meeting_docs: "Toplantı Dokümanları",
-    item_notebook_pen: "Notebook/Kalem",
-    item_briefcase: "Evrak Çantası",
-    item_ski_clothes: "Kayak Kıyafeti",
-    item_ski_gloves: "Kayak Eldiveni",
-    item_snow_boots: "Kar Botu",
-    item_ski_goggles: "Kar Gözlüğü",
-    item_beanie_neckwarmer: "Bere/Boyunluk",
-    item_thermal_underwear: "Termal İç Giyim",
-    item_ski_snowboard: "Kayak/Snowboard",
-    item_warm_coat: "Sıcak Tutan Mont",
-    item_hand_warmers: "El/Ayak Isıtıcı",
-    item_light_clothes: "Hafif Kıyafetler",
-    item_shorts: "Şort",
-    item_tshirt: "T-shirt",
-    item_sandals: "Sandalet",
-    item_thick_coat: "Kalın Mont/Kaban",
-    item_sweater: "Kazak",
-    item_scarf: "Atkı",
-    item_gloves: "Eldiven",
-    item_beanie: "Bere",
-    item_winter_boots: "Kışlık Bot",
-    item_lip_balm: "Dudak Nemlendiricisi",
-    item_light_jacket: "Hafif Ceket",
-    item_umbrella: "Şemsiye",
-    item_seasonal_clothes: "Geçiş Mevsimi Kıyafetleri",
-    item_cardigan: "Hırka/Ceket",
-    item_laundry_detergent: "Çamaşır Deterjanı",
-    item_clothesline: "Çamaşır İpi",
-    item_extra_clothes: "İlave Kıyafet Seti",
-    item_medication: "Vitamin/İlaç",
-    item_extra_charger: "Ekstra Şarj Aleti",
-    item_passport: "Pasaport",
-    item_visa: "Vize (gerekirse)",
-    item_flight_ticket: "Uçak Bileti",
-    item_hotel_booking: "Otel Rezervasyonu",
-    item_travel_insurance: "Seyahat Sigortası",
-    item_foreign_currency: "Yabancı Para/Kredi Kartı",
-    item_adapter: "Adaptör/Priz Çevirici",
-    item_phrasebook: "Dil Rehberi/Çeviri Uygulaması",
-    item_copies_docs: "Fotokopi (Pasaport/Kimlik)",
-    item_bus_flight_ticket: "Otobüs/Uçak Bileti",
-    item_hotel_info: "Otel/Konaklama Bilgisi",
-    item_toilet_paper: "Tuvalet Kağıdı/Mendil",
-    item_wet_wipes: "Islak Mendil",
-    item_trash_bags: "Çöp Torbası",
-    item_plastic_bags: "Plastik Poşet",
-    item_painkillers: "Ağrı Kesici",
-    item_bandaids: "Yara Bandı",
-    item_deodorant: "Deodorant",
-    item_perfume: "Parfüm/Kolonya",
-    item_hairbrush: "Saç Fırçası/Tarak"
-},
 
     es: {
         // Header
@@ -650,7 +454,7 @@ const translations = {
         travel: "Viaje",
         entertainment: "Entretenimiento",
 
-        // Items (Placeholder/Best Effort for Spanish)
+        // Items
         item_id_passport: "DNI/Pasaporte",
         item_wallet_money: "Cartera/Dinero",
         item_phone: "Teléfono",
@@ -696,7 +500,17 @@ function t(key) {
         return translations[currentLanguage][key];
     }
 
-    // Check items
+    // Check items via flat check first, then fallback to nested items if we had them (we flattened)
+    // Actually, in the current structure we flattened everything into the main object for simplicity in this rewrite.
+    // The usage in app.js assumes flat structure or items property?
+    // Let's check app.js usage: 
+    // It calls t(item.name). item.name from items-database.js is "item_socks". 
+    // In translations.js above, "item_socks" is at the top level of the language object.
+    // So translations[currentLanguage][key] will find it.
+    // The previous code had a check for .items property.
+    // To be safe and compatible with previous code that might look for items:
+
+    // Check items property if it exists (legacy support)
     if (translations[currentLanguage].items && translations[currentLanguage].items[key]) {
         return translations[currentLanguage].items[key];
     }
