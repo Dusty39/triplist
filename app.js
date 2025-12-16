@@ -195,7 +195,7 @@ function renderChecklist() {
 
         const categoryHeader = document.createElement('div');
         categoryHeader.className = 'category-header';
-        categoryHeader.textContent = category;
+        categoryHeader.textContent = t(category);
 
         const itemsList = document.createElement('div');
         itemsList.className = 'items-list';
@@ -229,7 +229,7 @@ function createItemElement(item) {
 
     const name = document.createElement('span');
     name.className = 'item-name';
-    name.textContent = item.name;
+    name.textContent = t(item.name);
 
     const removeBtn = document.createElement('button');
     removeBtn.className = 'item-remove';

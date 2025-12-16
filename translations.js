@@ -60,7 +60,122 @@ const translations = {
         general: "General",
         safety: "Safety",
         travel: "Travel",
-        entertainment: "Entertainment"
+        entertainment: "Entertainment",
+
+        // Items
+        item_id_passport: "ID/Passport",
+        item_wallet_money: "Wallet/Money",
+        item_phone: "Phone",
+        item_phone_charger: "Phone Charger",
+        item_underwear: "Underwear",
+        item_socks: "Socks",
+        item_toothbrush_paste: "Toothbrush & Paste",
+        item_sunglasses: "Sunglasses",
+        item_tent: "Tent",
+        item_sleeping_bag: "Sleeping Bag",
+        item_sleeping_mat: "Sleeping Mat",
+        item_flashlight: "Flashlight",
+        item_powerbank: "Powerbank",
+        item_multitool: "Multitool",
+        item_lighter_matches: "Lighter/Matches",
+        item_cooking_kit: "Cooking Kit",
+        item_water_bottle: "Water Bottle",
+        item_camp_chair: "Camping Chair",
+        item_portable_stove: "Portable Stove",
+        item_cooler_bag: "Cooler Bag",
+        item_first_aid_kit: "First Aid Kit",
+        item_bug_spray: "Bug Spray",
+        item_sneakers: "Sneakers",
+        item_outdoor_clothes: "Outdoor Clothes",
+        item_swimsuit: "Swimsuit",
+        item_beach_towel: "Beach Towel",
+        item_sunscreen: "Sunscreen",
+        item_beach_umbrella: "Beach Umbrella",
+        item_beach_bag: "Beach Bag",
+        item_flip_flops: "Flip-Flops",
+        item_hat: "Hat",
+        item_water_sports_gear: "Water Sports Gear",
+        item_underwater_camera: "Underwater Camera",
+        item_book_magazine: "Book/Magazine",
+        item_bikini_coverup: "Bikini/Cover-up",
+        item_trekking_shoes: "Trekking Shoes",
+        item_backpack: "Backpack",
+        item_trekking_poles: "Trekking Poles",
+        item_map_compass: "Map/Compass",
+        item_gps_device: "GPS Device",
+        item_hydration_pack: "Hydration Pack",
+        item_raincoat: "Raincoat",
+        item_layered_clothing: "Layered Clothing",
+        item_helmet: "Helmet",
+        item_energy_bars: "Energy Bars",
+        item_whistle: "Whistle",
+        item_fancy_clothes: "Fancy Clothes",
+        item_walking_shoes: "Walking Shoes",
+        item_city_guide: "City Guide",
+        item_camera: "Camera",
+        item_small_backpack: "Small Backpack",
+        item_museum_tickets: "Museum Tickets",
+        item_fancy_bag: "Fancy Bag",
+        item_headphones: "Headphones",
+        item_suit: "Suit",
+        item_shirt_blouse: "Shirt/Blouse",
+        item_formal_shoes: "Formal Shoes",
+        item_tie_scarf: "Tie/Scarf",
+        item_laptop: "Laptop",
+        item_laptop_charger: "Laptop Charger",
+        item_business_cards: "Business Cards",
+        item_meeting_docs: "Meeting Documents",
+        item_notebook_pen: "Notebook/Pen",
+        item_briefcase: "Briefcase",
+        item_ski_clothes: "Ski Clothes",
+        item_ski_gloves: "Ski Gloves",
+        item_snow_boots: "Snow Boots",
+        item_ski_goggles: "Ski Goggles",
+        item_beanie_neckwarmer: "Beanie/Neckwarmer",
+        item_thermal_underwear: "Thermal Underwear",
+        item_ski_snowboard: "Ski/Snowboard",
+        item_warm_coat: "Warm Coat",
+        item_hand_warmers: "Hand Warmers",
+        item_light_clothes: "Light Clothes",
+        item_shorts: "Shorts",
+        item_tshirt: "T-shirt",
+        item_sandals: "Sandals",
+        item_thick_coat: "Thick Coat",
+        item_sweater: "Sweater",
+        item_scarf: "Scarf",
+        item_gloves: "Gloves",
+        item_beanie: "Beanie",
+        item_winter_boots: "Winter Boots",
+        item_lip_balm: "Lip Balm",
+        item_light_jacket: "Light Jacket",
+        item_umbrella: "Umbrella",
+        item_seasonal_clothes: "Seasonal Clothes",
+        item_cardigan: "Cardigan",
+        item_laundry_detergent: "Laundry Detergent",
+        item_clothesline: "Clothesline",
+        item_extra_clothes: "Extra Clothes",
+        item_medication: "Medication",
+        item_extra_charger: "Extra Charger",
+        item_passport: "Passport",
+        item_visa: "Visa",
+        item_flight_ticket: "Flight Ticket",
+        item_hotel_booking: "Hotel Booking",
+        item_travel_insurance: "Travel Insurance",
+        item_foreign_currency: "Foreign Currency",
+        item_adapter: "Adapter",
+        item_phrasebook: "Phrasebook",
+        item_copies_docs: "Document Copies",
+        item_bus_flight_ticket: "Bus/Flight Ticket",
+        item_hotel_info: "Hotel Info",
+        item_toilet_paper: "Toilet Paper",
+        item_wet_wipes: "Wet Wipes",
+        item_trash_bags: "Trash Bags",
+        item_plastic_bags: "Plastic Bags",
+        item_painkillers: "Painkillers",
+        item_bandaids: "Bandaids",
+        item_deodorant: "Deodorant",
+        item_perfume: "Perfume",
+        item_hairbrush: "Hairbrush"
     },
 
     tr: {
@@ -123,7 +238,122 @@ const translations = {
         general: "Genel",
         safety: "Güvenlik",
         travel: "Seyahat",
-        entertainment: "Eğlence"
+        entertainment: "Eğlence",
+
+        // Items
+        item_id_passport: "Kimlik/Pasaport",
+        item_wallet_money: "Cüzdan/Para",
+        item_phone: "Telefon",
+        item_phone_charger: "Telefon Şarj Aleti",
+        item_underwear: "İç Çamaşırı",
+        item_socks: "Çorap",
+        item_toothbrush_paste: "Diş Fırçası ve Macunu",
+        item_sunglasses: "Güneş Gözlüğü",
+        item_tent: "Çadır",
+        item_sleeping_bag: "Uyku Tulumu",
+        item_sleeping_mat: "Kamp Matı",
+        item_flashlight: "Fener/El Feneri",
+        item_powerbank: "Powerbank",
+        item_multitool: "Çakı/Çok Amaçlı Alet",
+        item_lighter_matches: "Çakmak/Kibrit",
+        item_cooking_kit: "Yemek Kabı ve Çatal-Kaşık",
+        item_water_bottle: "Su Matarası",
+        item_camp_chair: "Kamp Sandalyesi",
+        item_portable_stove: "Taşınabilir Ocak",
+        item_cooler_bag: "Soğutucu Çanta",
+        item_first_aid_kit: "İlk Yardım Çantası",
+        item_bug_spray: "Böcek Kovucu Sprey",
+        item_sneakers: "Spor Ayakkabı",
+        item_outdoor_clothes: "Outdoor Kıyafetler",
+        item_swimsuit: "Mayo/Şort",
+        item_beach_towel: "Plaj Havlusu",
+        item_sunscreen: "Güneş Kremi",
+        item_beach_umbrella: "Plaj Şemsiyesi",
+        item_beach_bag: "Plaj Çantası",
+        item_flip_flops: "Terlik/Sandalet",
+        item_hat: "Şapka/Kep",
+        item_water_sports_gear: "Su Sporları Ekipmanı",
+        item_underwater_camera: "Sualtı Kamerası",
+        item_book_magazine: "Kitap/Dergi",
+        item_bikini_coverup: "Bikini/Cover-up",
+        item_trekking_shoes: "Trekking Ayakkabısı",
+        item_backpack: "Sırt Çantası",
+        item_trekking_poles: "Yürüyüş Sopası",
+        item_map_compass: "Harita/Pusula",
+        item_gps_device: "GPS Cihazı",
+        item_hydration_pack: "Su Matarası/Hidrasyon Çantası",
+        item_raincoat: "Yağmurluk",
+        item_layered_clothing: "Katmanlı Kıyafet",
+        item_helmet: "Kask (gerekirse)",
+        item_energy_bars: "Enerji Barları",
+        item_whistle: "Düdük",
+        item_fancy_clothes: "Şık Kıyafetler",
+        item_walking_shoes: "Rahat Yürüyüş Ayakkabısı",
+        item_city_guide: "Şehir Rehberi/Harita",
+        item_camera: "Kamera/Fotoğraf Makinesi",
+        item_small_backpack: "Küçük Sırt Çantası",
+        item_museum_tickets: "Müze/Etkinlik Biletleri",
+        item_fancy_bag: "Şık Çanta/Cüzdan",
+        item_headphones: "Kulaklık",
+        item_suit: "Takım Elbise/Blazer",
+        item_shirt_blouse: "Gömlek/Bluz",
+        item_formal_shoes: "Klasik Ayakkabı",
+        item_tie_scarf: "Kravat/Fular",
+        item_laptop: "Laptop",
+        item_laptop_charger: "Laptop Şarj Aleti",
+        item_business_cards: "Kartvizit",
+        item_meeting_docs: "Toplantı Dokümanları",
+        item_notebook_pen: "Notebook/Kalem",
+        item_briefcase: "Evrak Çantası",
+        item_ski_clothes: "Kayak Kıyafeti",
+        item_ski_gloves: "Kayak Eldiveni",
+        item_snow_boots: "Kar Botu",
+        item_ski_goggles: "Kar Gözlüğü",
+        item_beanie_neckwarmer: "Bere/Boyunluk",
+        item_thermal_underwear: "Termal İç Giyim",
+        item_ski_snowboard: "Kayak/Snowboard",
+        item_warm_coat: "Sıcak Tutan Mont",
+        item_hand_warmers: "El/Ayak Isıtıcı",
+        item_light_clothes: "Hafif Kıyafetler",
+        item_shorts: "Şort",
+        item_tshirt: "T-shirt",
+        item_sandals: "Sandalet",
+        item_thick_coat: "Kalın Mont/Kaban",
+        item_sweater: "Kazak",
+        item_scarf: "Atkı",
+        item_gloves: "Eldiven",
+        item_beanie: "Bere",
+        item_winter_boots: "Kışlık Bot",
+        item_lip_balm: "Dudak Nemlendiricisi",
+        item_light_jacket: "Hafif Ceket",
+        item_umbrella: "Şemsiye",
+        item_seasonal_clothes: "Geçiş Mevsimi Kıyafetleri",
+        item_cardigan: "Hırka/Ceket",
+        item_laundry_detergent: "Çamaşır Deterjanı",
+        item_clothesline: "Çamaşır İpi",
+        item_extra_clothes: "İlave Kıyafet Seti",
+        item_medication: "Vitamin/İlaç",
+        item_extra_charger: "Ekstra Şarj Aleti",
+        item_passport: "Pasaport",
+        item_visa: "Vize (gerekirse)",
+        item_flight_ticket: "Uçak Bileti",
+        item_hotel_booking: "Otel Rezervasyonu",
+        item_travel_insurance: "Seyahat Sigortası",
+        item_foreign_currency: "Yabancı Para/Kredi Kartı",
+        item_adapter: "Adaptör/Priz Çevirici",
+        item_phrasebook: "Dil Rehberi/Çeviri Uygulaması",
+        item_copies_docs: "Fotokopi (Pasaport/Kimlik)",
+        item_bus_flight_ticket: "Otobüs/Uçak Bileti",
+        item_hotel_info: "Otel/Konaklama Bilgisi",
+        item_toilet_paper: "Tuvalet Kağıdı/Mendil",
+        item_wet_wipes: "Islak Mendil",
+        item_trash_bags: "Çöp Torbası",
+        item_plastic_bags: "Plastik Poşet",
+        item_painkillers: "Ağrı Kesici",
+        item_bandaids: "Yara Bandı",
+        item_deodorant: "Deodorant",
+        item_perfume: "Parfüm/Kolonya",
+        item_hairbrush: "Saç Fırçası/Tarak"
     },
 
     es: {
@@ -186,14 +416,48 @@ const translations = {
         general: "General",
         safety: "Seguridad",
         travel: "Viaje",
-        entertainment: "Entretenimiento"
+        entertainment: "Entretenimiento",
+
+        // Items (Placeholder/Best Effort for Spanish)
+        item_id_passport: "DNI/Pasaporte",
+        item_wallet_money: "Cartera/Dinero",
+        item_phone: "Teléfono",
+        item_phone_charger: "Cargador",
+        item_underwear: "Ropa Interior",
+        item_socks: "Calcetines",
+        item_toothbrush_paste: "Cepillo de Dientes",
+        item_sunglasses: "Gafas de Sol",
+        item_tent: "Tienda de Campaña",
+        item_sleeping_bag: "Saco de Dormir",
+        item_first_aid_kit: "Botiquín",
+        item_sunscreen: "Protector Solar",
+        item_swimsuit: "Traje de Baño",
+        item_beach_towel: "Toalla de Playa"
+        // ... Adding just main ones to keep file cleaner, will default to key if missing or can be expanded later
     }
 };
 
 let currentLanguage = 'en'; // Default to English
 
 function t(key) {
-    return translations[currentLanguage][key] || key;
+    if (!translations[currentLanguage]) return key;
+
+    // Check main keys
+    if (translations[currentLanguage][key]) {
+        return translations[currentLanguage][key];
+    }
+
+    // Check items
+    if (translations[currentLanguage].items && translations[currentLanguage].items[key]) {
+        return translations[currentLanguage].items[key];
+    }
+
+    // Fallback to English
+    if (currentLanguage !== 'en' && translations.en[key]) {
+        return translations.en[key];
+    }
+
+    return key;
 }
 
 function setLanguage(lang) {
@@ -260,12 +524,29 @@ function updateAllText() {
         checklistH1.textContent = `✓ ${t('checklist')}`;
     }
 
-    // Re-render checklist if active
-    if (checklistItems.length > 0) {
+    // Update progress text part "ready"
+    updateProgressText();
+
+    // Update Trip Summary
+    if (typeof tripConfig !== 'undefined' && tripConfig.type) {
         updateTripSummary();
-        updateProgress();
+    }
+
+    // Re-render checklist items to apply new language
+    if (typeof checklistItems !== 'undefined' && checklistItems.length > 0) {
+        renderChecklist();
     }
 }
+
+// Function to update progress text specifically for language change
+function updateProgressText() {
+    const progressText = document.getElementById('progress-text');
+    if (progressText && progressText.textContent.includes('/')) {
+        const parts = progressText.textContent.split(' ');
+        progressText.textContent = `${parts[0]} ${t('ready')}`;
+    }
+}
+
 
 function loadLanguage() {
     const saved = localStorage.getItem('triplistLanguage');
