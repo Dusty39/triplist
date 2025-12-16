@@ -1,5 +1,5 @@
 // Service Worker for TripList PWA
-const CACHE_NAME = 'triplist-v5';
+const CACHE_NAME = 'triplist-v6';
 const urlsToCache = [
     './',
     './index.html',

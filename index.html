@@ -12,6 +12,8 @@
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon-192.png">
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -125,6 +127,39 @@
                 <button class="btn-generate" onclick="generateChecklist()">
                     📋 Generate List
                 </button>
+
+                <!-- My Trips Button -->
+                <button class="btn-secondary" onclick="showScreen('trips-screen'); loadSavedTripsUI()">
+                    📂 My Trips
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trips Screen -->
+    <div id="trips-screen" class="screen">
+        <div class="container">
+            <div class="checklist-header">
+                <button class="btn-back" onclick="backToDashboard()">← Back</button>
+                <h1>📂 My Trips</h1>
+            </div>
+            <div class="trips-list" id="saved-trips-list">
+                <!-- Saved trips will be inserted here -->
+            </div>
+            <div id="no-trips-message" class="no-trips">
+                No saved trips yet.
+            </div>
+        </div>
+    </div>
+
+    <!-- Save Trip Modal -->
+    <div id="save-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Save Trip</h2>
+            <input type="text" id="trip-name-input" placeholder="Enter trip name...">
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeSaveModal()">Cancel</button>
+                <button class="btn-save" onclick="saveCurrentTrip()">Save</button>
             </div>
         </div>
     </div>
@@ -144,6 +179,12 @@
                         <div class="progress-fill" id="progress-fill"></div>
                     </div>
                 </div>
+
+                <div class="action-buttons">
+                    <button class="btn-action" onclick="shareList()">📤 Share</button>
+                    <button class="btn-action" onclick="exportPDF()">📄 PDF</button>
+                    <button class="btn-action" onclick="openSaveModal()">💾 Save</button>
+                </div>
             </div>
 
             <div class="checklist-content" id="checklist-content">
@@ -159,7 +200,7 @@
     <!-- PWA Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js?v=5')
+            navigator.serviceWorker.register('./sw.js?v=6')
                 .then(registration => {
                     console.log('Service Worker registered');
 
