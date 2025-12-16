@@ -227,7 +227,7 @@ const translations = {
         clothing: "Kıyafet",
         electronics: "Elektronik",
         hygiene: "Hijyen",
-        camping: "Kamp Malzemesi",
+        camping: "Kamp",
         beach: "Plaj",
         hiking: "Dağcılık",
         ski: "Kayak",
