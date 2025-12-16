@@ -1,12 +1,14 @@
 // Service Worker for TripList PWA
-const CACHE_NAME = 'triplist-v3';
+const CACHE_NAME = 'triplist-v4';
 const urlsToCache = [
     './',
     './index.html',
     './style.css',
     './app.js',
     './items-database.js',
-    './translations.js'
+    './translations.js',
+    './icon-192.png',
+    './icon-512.png'
 ];
 
 // Install event - cache files
