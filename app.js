@@ -27,7 +27,6 @@ function setLanguage(lang) {
     localStorage.setItem('triplistLanguage', lang);
     updateLanguageUI();
     updateAllText();
-    updateAllText();
 }
 
 // --- Dark Mode ---
@@ -70,11 +69,15 @@ function updateAllText() {
     if (sub) sub.textContent = t('subtitle');
 
     // Update section headings
+    // Update section headings
     const sections = document.querySelectorAll('.config-section h2');
-    if (sections[0]) sections[0].querySelector('span').textContent = t('destination');
-    if (sections[1]) sections[1].textContent = `🎯 ${t('tripType')}`;
-    if (sections[2]) sections[2].textContent = `⏱️ ${t('duration')}`;
-    if (sections[3]) sections[3].textContent = `🌤️ ${t('season')}`;
+    if (sections[0]) sections[0].textContent = `🎯 ${t('tripType')}`;
+    if (sections[1]) sections[1].textContent = `⏱️ ${t('duration')}`;
+    if (sections[2]) sections[2].textContent = `🌤️ ${t('season')}`;
+    if (sections[3]) {
+        const span = sections[3].querySelector('span');
+        if (span) span.textContent = t('destination');
+    }
     if (sections[4]) sections[4].textContent = `📍 ${t('location')}`;
 
     // Update option labels
@@ -222,12 +225,6 @@ function generateChecklist() {
     itemStates = {};
 
     // Collect items based on configuration
-    checklistItems = collectItems();
-
-    // Update trip summary
-    updateTripSummary();
-
-    // Generate items
     checklistItems = collectItems();
 
     // Update trip summary
@@ -818,7 +815,7 @@ async function fetchWeather(city) {
 
         const temp = Math.round(weatherData.current_weather.temperature);
         const code = weatherData.current_weather.weathercode;
-        
+
         // Simple WMO code mapping
         let icon = '☀️';
         if (code > 3) icon = '☁️';
