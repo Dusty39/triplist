@@ -231,7 +231,8 @@ function generateChecklist() {
     updateTripSummary();
 
     // Weather
-    const city = document.getElementById('destination-input').value.trim();
+    const destInput = document.getElementById('destination-input');
+    const city = destInput ? destInput.value.trim() : '';
     if (city) {
         fetchWeather(city);
     } else {
@@ -339,7 +340,8 @@ function updateTripSummary() {
 
     const summary = `${typeIcons[tripConfig.type]} ${t(tripConfig.type)} • ${t(tripConfig.duration)} • ${seasonIcons[tripConfig.season]} ${t(tripConfig.season)} • ${locationIcons[tripConfig.location]} ${t(tripConfig.location)}`;
 
-    document.getElementById('trip-summary').textContent = summary;
+    const summaryEl = document.getElementById('trip-summary');
+    if (summaryEl) summaryEl.textContent = summary;
 }
 
 function renderChecklist() {
@@ -792,6 +794,8 @@ async function fetchWeather(city) {
     if (!city) return;
 
     const widget = document.getElementById('weather-widget');
+    if (!widget) return;
+
     widget.classList.add('active');
     widget.textContent = t('loadingWeather');
 
