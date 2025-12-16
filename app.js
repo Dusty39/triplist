@@ -1,4 +1,139 @@
 // Travel Checklist App
+let currentLanguage = 'en'; // Default to English
+
+function t(key) {
+    if (!translations[currentLanguage]) return key;
+
+    // Check main keys
+    if (translations[currentLanguage][key]) {
+        return translations[currentLanguage][key];
+    }
+
+    // Legacy support for nested items if they exist, though we flattened them.
+    if (translations[currentLanguage].items && translations[currentLanguage].items[key]) {
+        return translations[currentLanguage].items[key];
+    }
+
+    // Fallback to English
+    if (currentLanguage !== 'en' && translations.en[key]) {
+        return translations.en[key];
+    }
+
+    return key;
+}
+
+function setLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('triplistLanguage', lang);
+    updateLanguageUI();
+    updateAllText();
+}
+
+function updateLanguageUI() {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    const activeBtn = document.querySelector(`[data-lang="${currentLanguage}"]`);
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+    }
+}
+
+function updateAllText() {
+    // Update header
+    const h1 = document.querySelector('.header h1');
+    if (h1) h1.textContent = `🎒 ${t('appName')}`;
+
+    const sub = document.querySelector('.subtitle');
+    if (sub) sub.textContent = t('subtitle');
+
+    // Update section headings
+    const sections = document.querySelectorAll('.config-section h2');
+    if (sections[0]) sections[0].textContent = `🎯 ${t('tripType')}`;
+    if (sections[1]) sections[1].textContent = `⏱️ ${t('duration')}`;
+    if (sections[2]) sections[2].textContent = `🌤️ ${t('season')}`;
+    if (sections[3]) sections[3].textContent = `📍 ${t('location')}`;
+
+    // Update option labels
+    const updateOptions = (dataAttr, keys) => {
+        keys.forEach(key => {
+            const btn = document.querySelector(`[data-${dataAttr}="${key}"]`);
+            if (btn) {
+                const label = btn.querySelector('.option-label');
+                if (label) label.textContent = t(key);
+            }
+        });
+    };
+
+    updateOptions('type', ['camping', 'beach', 'hiking', 'city', 'business', 'ski']);
+    updateOptions('duration', ['oneTwo', 'threeFive', 'week', 'longTrip']);
+    updateOptions('season', ['summer', 'fall', 'winter', 'spring']);
+    updateOptions('location', ['domestic', 'international']);
+
+    // Buttons
+    const genBtn = document.querySelector('.btn-generate');
+    if (genBtn) genBtn.textContent = `📋 ${t('generateList')}`;
+
+    const backBtn = document.querySelector('.btn-back');
+    if (backBtn) backBtn.textContent = `← ${t('newTrip')}`;
+
+    // New Feature Buttons / Labels
+    const myTripsBtn = document.querySelector('.btn-secondary');
+    if (myTripsBtn) {
+        // We didn't translate "My Trips" button text in HTML originally (it was hardcoded to "My Trips"). 
+        // Let's ensure it gets translated if we have a key for it.
+        // The key is 'myTrips'.
+        myTripsBtn.textContent = `📂 ${t('myTrips')}`;
+    }
+
+    // Screen Headers
+    const tripsH1 = document.querySelector('#trips-screen h1');
+    if (tripsH1) tripsH1.textContent = `📂 ${t('myTrips')}`;
+
+    const checklistH1 = document.querySelector('.trip-info h1');
+    if (checklistH1) checklistH1.textContent = `✓ ${t('checklist')}`;
+
+    // Update progress text
+    updateProgressText();
+
+    // Re-render
+    if (typeof tripConfig !== 'undefined' && tripConfig.type) updateTripSummary();
+    if (typeof checklistItems !== 'undefined' && checklistItems.length > 0) renderChecklist();
+
+    // Update Modal
+    const modalTitle = document.getElementById('modal-title');
+    if (modalTitle) modalTitle.textContent = t('saveTrip');
+    const nameInput = document.getElementById('trip-name-input');
+    if (nameInput) nameInput.placeholder = t('enterTripName');
+
+    // Update Action Buttons in Checklist
+    const actionBtns = document.querySelectorAll('.btn-action');
+    if (actionBtns.length >= 3) {
+        actionBtns[0].textContent = `📤 ${t('share')}`;
+        actionBtns[1].textContent = `📄 ${t('exportPDF')}`;
+        actionBtns[2].textContent = `💾 ${t('save')}`;
+    }
+}
+
+function updateProgressText() {
+    const progressText = document.getElementById('progress-text');
+    if (progressText && progressText.textContent.includes('/')) {
+        const parts = progressText.textContent.split(' ');
+        progressText.textContent = `${parts[0]} ${t('ready')}`;
+    }
+}
+
+function loadLanguage() {
+    const saved = localStorage.getItem('triplistLanguage');
+    if (saved && translations[saved]) {
+        currentLanguage = saved;
+    } else {
+        currentLanguage = 'en';
+    }
+    updateLanguageUI();
+    updateAllText();
+}
+
 let tripConfig = {
     type: null,
     duration: null,
