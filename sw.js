@@ -1,5 +1,5 @@
 // Service Worker for TripList PWA
-const CACHE_NAME = 'triplist-v2';
+const CACHE_NAME = 'triplist-v3';
 const urlsToCache = [
     './',
     './index.html',
@@ -11,6 +11,8 @@ const urlsToCache = [
 
 // Install event - cache files
 self.addEventListener('install', event => {
+    // Force this service worker to become the active one, bypassing the waiting state
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => cache.addAll(urlsToCache))
@@ -36,6 +38,9 @@ self.addEventListener('activate', event => {
                     }
                 })
             );
+        }).then(() => {
+            // Force the service worker to take control of all clients immediately
+            return self.clients.claim();
         })
     );
 });
